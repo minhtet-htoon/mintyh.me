@@ -1,0 +1,12 @@
+{
+  "categories":
+    [
+      {
+        "name": "OAuth Bot",
+        "details": "A Discord bot that verifies a user by Google OAuth",
+        "image": "",
+        "link": "https://github.com/minhtet-htoon/verifier",
+        "status": 1
+      }
+    ]
+}

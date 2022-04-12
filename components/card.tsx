@@ -6,15 +6,9 @@ export interface IProject {
     details:string;
     image:string;
     link:string;
-    status:EStatus;
+    status:number;
 }
 
-export enum EStatus {
-    Finished,
-    InDev,
-    Delayed,
-    Canceled,
-}
 
 export default function ProjectCard(props:IProject) {
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -23,35 +17,38 @@ export default function ProjectCard(props:IProject) {
     const secondaryColor = theme.colorScheme === 'dark'
         ? theme.colors.dark[1]
         : theme.colors.gray[7];
-    const color = (status:EStatus) => {
+    const color = (status:number) => {
       switch (status) {
-          case EStatus.Finished:{
+          case 0:{
               return 'green';
           }
-          case EStatus.InDev:{
+          case 1:{
               return 'yellow'
           }
-          case EStatus.Delayed:{
+          case 2:{
               return 'orange'
           }
-          case EStatus.Canceled:{
+          case 3:{
               return 'red'
           }
       }
     }
-    function statusText(status:EStatus):string {
+    function statusText(status:number):string {
         switch (status) {
-            case EStatus.Canceled:{
+            case 3:{
                 return 'cancelled'
             }
-            case EStatus.Delayed:{
+            case 2:{
                 return'delayed'
             }
-            case EStatus.InDev:{
+            case 1:{
                 return 'In Development'
             }
-            case EStatus.Finished:{
+            case 0:{
                 return 'Finished'
+            }
+            default :{
+                return ''
             }
         }
     }
