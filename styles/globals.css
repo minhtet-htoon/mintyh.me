@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 html,
 body {
   padding: 0;
@@ -5,7 +8,14 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-
+.parallax{
+  background-image: url('/Image.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100%;
+}
 a {
   color: inherit;
   text-decoration: none;
