@@ -20,7 +20,7 @@ const Home: NextPage = () => {
           </div>
         </Center>
       </div>
-      <div>
+      <div style={{width:'60%', margin:'auto'}}>
         <ProjectsPage categories={Projects.categories} />
       </div>
       <Footer />

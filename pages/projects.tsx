@@ -4,10 +4,14 @@ import React from "react";
 import { Projects } from "../components/projectStore";
 import MhHeader from "../components/header";
 import Footer from "../components/footer";
+import {
+    ReactNode
+} from "../../../Applications/WebStorm.app/Contents/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/react";
 
 export interface IProps {
   categories: {
     name: string;
+    icon: ReactNode;
     projects: IProject[];
   }[];
 }
@@ -16,7 +20,7 @@ export default function projects() {
   return (
     <div>
       <MhHeader />
-      <div className="container w-1/2" style={{ margin: "auto" }}>
+      <div className="container" style={{ width:'60%', margin: "auto" }}>
         <ProjectsPage categories={Projects.categories} />
       </div>
       <Footer />
@@ -36,9 +40,11 @@ export function ProjectsPage(props: IProps) {
         stage={project.stage}
       />
     ));
-    return (
+    // @ts-ignore
+      return (
       // eslint-disable-next-line react/jsx-key
-      <Tabs.Tab label={cat.name}>
+          // @ts-ignore
+      <Tabs.Tab label={cat.name} icon={cat.icon}>
         <div className="grid grid-cols-5">{projects}</div>
       </Tabs.Tab>
     );
