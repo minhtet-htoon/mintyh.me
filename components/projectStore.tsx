@@ -1,12 +1,11 @@
 import { IProps } from "../pages/projects";
 import { Browser } from "tabler-icons-react";
 
-
 export const Projects: IProps = {
   categories: [
     {
       name: "Web and Javascript",
-      icon: (<Browser/>),
+      icon: <Browser />,
       projects: [
         {
           name: "OAuth Bot",
