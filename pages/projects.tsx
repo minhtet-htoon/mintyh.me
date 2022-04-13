@@ -1,24 +1,26 @@
-import {Card, Tabs} from "@mantine/core";
-import {Box, DeviceDesktop, Icon, Photo} from "tabler-icons-react";
+import {Tabs} from "@mantine/core";
 import ProjectCard, {IProject} from "../components/card";
-import React, {ReactNode} from "react";
+import React from "react";
 import MhHeader from "../components/header";
 import {categories} from './projects.json';
+import Footer from "../components/footer";
 
 interface IProps {
     categories:
         {
             name:string;
-            icon:ReactNode;
             projects: IProject[]
         }[]
 }
-export default async function projects() {
+export default function projects() {
     console.log(categories)
     return (
         <div>
             <MhHeader/>
-            {/*<ProjectsPage categories={}/>*/}
+            <div className='container w-1/2' style={{margin:'auto'}}>
+                <ProjectsPage categories={categories}/>
+            </div>
+            <Footer/>
         </div>
     )
 }
@@ -30,7 +32,7 @@ export function ProjectsPage(props: IProps) {
         ))
         return(
         // eslint-disable-next-line react/jsx-key
-        <Tabs.Tab label={cat.name} icon={cat.icon} >
+        <Tabs.Tab label={cat.name} >
             <div className='grid grid-cols-5'>
                 {projects}
             </div>

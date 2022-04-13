@@ -1,5 +1,6 @@
-import {Badge, Button, Card, Group, Image, Text, useMantineTheme} from "@mantine/core";
+import {Badge, Button, Card, Group, Image, Modal, Text, useMantineTheme} from "@mantine/core";
 import {BrandGithub} from "tabler-icons-react";
+import {useState} from "react";
 
 export interface IProject {
     name:string;
@@ -7,6 +8,7 @@ export interface IProject {
     image:string;
     link:string;
     status:number;
+    stage: number;
 }
 
 
@@ -52,6 +54,7 @@ export default function ProjectCard(props:IProject) {
             }
         }
     }
+    const [opened, setOpened] = useState(false);
     return(
             <Card shadow="sm" p="lg" style={{ width: 300, margin: 'auto' }}>
                 <Card.Section>
@@ -59,7 +62,7 @@ export default function ProjectCard(props:IProject) {
                 </Card.Section>
 
                 <Group position="apart" style={{ marginBottom: 5, marginTop: theme.spacing.sm }}>
-                    <Text weight={500}>{props.name}</Text>
+                    <Text onClick={()=>{setOpened(true)}} weight={500}>{props.name}</Text>
                     <Badge color={color(props.status)} variant="light">
                         {statusText(props.status)}
                     </Badge>
@@ -71,9 +74,19 @@ export default function ProjectCard(props:IProject) {
 
                 <Button onClick={()=>{
                     window.open(props.link)
-                }} variant="light" color="blue" fullWidth style={{ marginTop: 14 }}>
+                }} variant="light" color="gray" fullWidth style={{ marginTop: 14 }}>
                     <BrandGithub/> View Source
                 </Button>
+                <Modal
+                    opened={opened}
+                    onClose={() => setOpened(false)}
+                    title="Project Details"
+                >
+                    <h1>
+                        Name: {props.name}
+                    </h1>
+
+                </Modal>
             </Card>
         )
 

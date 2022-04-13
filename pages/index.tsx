@@ -1,12 +1,10 @@
 import type {NextPage} from 'next'
-import {Box, Photo, DeviceDesktop} from "tabler-icons-react";
 import "../styles/Home.module.css"
-import {Center, SimpleGrid, Tabs} from "@mantine/core";
-import {EStatus} from "../components/card";
-import ProjectCard from "../components/card";
+import {Center} from "@mantine/core";
 import Footer from "../components/footer";
 import MhHeader from "../components/header";
-
+import {ProjectsPage} from "./projects";
+import {categories} from "./projects.json";
 
 
 const Home: NextPage = () => {
@@ -23,6 +21,9 @@ const Home: NextPage = () => {
             </div>
           </Center>
         </div>
+          <div>
+              <ProjectsPage categories={categories}/>
+          </div>
         <Footer/>
       </div>
   )
