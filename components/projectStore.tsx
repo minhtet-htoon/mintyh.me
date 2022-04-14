@@ -35,7 +35,7 @@ export const Projects: IProps = {
         details: '4-dimensional puzzle-shooter',
         image: '',
         link: '',
-        status: 1,
+        status: 2,
         stage: 1,
         technology: 'Rust'
       }]

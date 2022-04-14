@@ -65,7 +65,7 @@ export default function ProjectCard(props: IProject) {
   }
   const [opened, setOpened] = useState(false);
   return (
-    <Card shadow="sm" p="lg" className='container' style={{ width: 300, margin: "auto", height:'100%', position:'relative'}}>
+    <Card shadow="sm" p="lg" className='container' style={{ width: '95%', margin: "auto", height:'100%', position:'relative'}}>
       <Card.Section>
         <Image src={props.image} height={250} alt={props.name} />
       </Card.Section>
@@ -106,7 +106,15 @@ export default function ProjectCard(props: IProject) {
       >
         <div className='flex flex-row'>
           <div className="basis-2/3">
-            <h1 style={{ fontSize: 36 }}>Name: {props.name}</h1>
+            <Group
+                position="apart"
+                style={{ fontSize:36, marginTop: theme.spacing.sm, marginRight:4 }}
+            >
+              <h1 style={{fontWeight:500}}>{props.name}</h1>
+              <Badge color={color(props.status)} variant="light">
+                {statusText(props.status)}
+              </Badge>
+            </Group>
             <h2 style={{fontSize: 24, marginBottom:'2%'}}>Technology: {props.technology}</h2>
             <hr/>
             <p style={{marginTop:"2%"}}>{props.details}</p>

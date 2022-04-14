@@ -17,7 +17,7 @@ export default function projects() {
   return (
     <div>
       <MhHeader />
-      <div className="container" style={{ width: "60%", margin: "auto" }}>
+      <div className="container" style={{ width:'auto', margin: "auto" }}>
         <ProjectsPage categories={Projects.categories} />
       </div>
       <Footer />
