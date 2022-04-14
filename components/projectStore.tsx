@@ -1,5 +1,5 @@
 import { IProps } from "../pages/projects";
-import { Browser } from "tabler-icons-react";
+import {Browser, Bulb, DeviceGamepad} from "tabler-icons-react";
 
 export const Projects: IProps = {
   categories: [
@@ -9,13 +9,50 @@ export const Projects: IProps = {
       projects: [
         {
           name: "OAuth Bot",
-          details:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus hendrerit urna sit amet convallis vestibulum. Curabitur est eros, venenatis vel mollis eu, suscipit eu turpis. Curabitur efficitur diam quam, non mattis justo egestas nec. In hac habitasse platea dictumst. Duis sit amet finibus odio. Etiam pulvinar, mauris ut rhoncus lacinia, ex odio volutpat arcu, condimentum hendrerit purus sapien eget felis. Sed molestie dictum justo. Aenean tempus, nisi egestas varius fringilla, ex nisi imperdiet sem, ac rutrum sapien orci sed velit. Nam dolor lacus, sollicitudin vel diam viverra, molestie congue ligula. Pellentesque ornare laoreet magna. Pellentesque vel velit at risus viverra semper. Nam varius congue nisl at finibus. Pellentesque efficitur lacus ut magna imperdiet consectetur.",
+          details: "A simple discord bot to verify users over OAuth",
           image: "",
           link: "https://github.com/minhtet-htoon/verifier",
-          status: 0,
-          stage: 6
+          status: 1,
+          stage: 2,
+          technology:'Discord.js'
+        },
+        {
+          name:'mintyh.me',
+          details: 'Personal website and project portfolio.',
+          image:'',
+          link:'https://github.com/minhtet-htoon/mintyh.me',
+          status: 1,
+          stage: 4,
+          technology:'NextJS'
         }
+      ]
+    },
+    {
+      name: 'Games',
+      icon: <DeviceGamepad/>,
+      projects:[{
+        name: 'Multiverse',
+        details: '4-dimensional puzzle-shooter',
+        image: '',
+        link: '',
+        status: 1,
+        stage: 1,
+        technology: 'Rust'
+      }]
+    },
+    {
+      name: "Ideas",
+      icon: <Bulb />,
+      projects:[
+          {
+            name:'Mint Music',
+            details: "An experimental music player",
+            image:'',
+            link: 'https://github.com/minhtet-htoon/mint-ts2',
+            status: 2,
+            stage: 1,
+            technology: 'Electron'
+          }
       ]
     }
   ]

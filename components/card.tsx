@@ -4,7 +4,7 @@ import {
   Card,
   Group,
   Image,
-  Modal,
+  Modal, Spoiler,
   Stepper,
   Text,
   useMantineTheme
@@ -19,6 +19,7 @@ export interface IProject {
   link: string;
   status: number;
   stage: number;
+  technology: string;
 }
 
 export default function ProjectCard(props: IProject) {
@@ -64,7 +65,7 @@ export default function ProjectCard(props: IProject) {
   }
   const [opened, setOpened] = useState(false);
   return (
-    <Card shadow="sm" p="lg" style={{ width: 300, margin: "auto" }}>
+    <Card shadow="sm" p="lg" className='container' style={{ width: 300, margin: "auto", height:'100%', position:'relative'}}>
       <Card.Section>
         <Image src={props.image} height={250} alt={props.name} />
       </Card.Section>
@@ -73,15 +74,17 @@ export default function ProjectCard(props: IProject) {
         position="apart"
         style={{ marginBottom: 5, marginTop: theme.spacing.sm }}
       >
-        <a onClick={()=>{setOpened(true)}} href='javascript:void(0);' style={{fontWeight:500}}>{props.name}</a>
+        <a onClick={()=>{setOpened(true)}} href='javascript:void(0);' style={{fontWeight:500}}><u>{props.name}</u></a>
         <Badge color={color(props.status)} variant="light">
           {statusText(props.status)}
         </Badge>
       </Group>
 
-      <Text size="sm" style={{ color: secondaryColor, lineHeight: 1.5 }}>
-        {props.details}
-      </Text>
+      <Spoiler maxHeight={100} showLabel="Show more" hideLabel="Hide">
+        <Text size="sm" style={{ color: secondaryColor, lineHeight: 1.5 }}>
+          {props.details}
+        </Text>
+      </Spoiler>
 
       <Button
         onClick={() => {
@@ -90,7 +93,7 @@ export default function ProjectCard(props: IProject) {
         variant="light"
         color="gray"
         fullWidth
-        style={{ marginTop: 14 }}
+        style={{marginBottom:'4', position:'relative' }}
       >
         <BrandGithub /> View Source
       </Button>
@@ -98,13 +101,15 @@ export default function ProjectCard(props: IProject) {
         opened={opened}
         onClose={() => setOpened(false)}
         title="Project Details"
-        size="80%"
+        size="60%"
         className='flex flex-row'
       >
         <div className='flex flex-row'>
           <div className="basis-2/3">
             <h1 style={{ fontSize: 36 }}>Name: {props.name}</h1>
-            <p>{props.details}</p>
+            <h2 style={{fontSize: 24, marginBottom:'2%'}}>Technology: {props.technology}</h2>
+            <hr/>
+            <p style={{marginTop:"2%"}}>{props.details}</p>
             <Button
                 onClick={() => {
                   window.open(props.link);

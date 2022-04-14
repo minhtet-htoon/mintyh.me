@@ -35,6 +35,7 @@ export function ProjectsPage(props: IProps) {
         link={project.link}
         status={project.status}
         stage={project.stage}
+        technology={project.technology}
       />
     ));
     return (
