@@ -65,7 +65,7 @@ export default function ProjectCard(props: IProject) {
   }
   const [opened, setOpened] = useState(false);
   return (
-    <Card shadow="sm" p="lg" className='container' style={{ width: '95%', margin: "auto", height:'100%', position:'relative'}}>
+    <Card shadow="sm" p="lg" className='container' style={{ width: '80%', margin: "auto", height:'100%', position:'relative', aspectRatio:"0.75"}}>
       <Card.Section>
         <Image src={props.image} height={250} alt={props.name} />
       </Card.Section>
@@ -93,7 +93,7 @@ export default function ProjectCard(props: IProject) {
         variant="light"
         color="gray"
         fullWidth
-        style={{marginBottom:'4', position:'relative' }}
+        style={{marginTop:'100' }}
       >
         <BrandGithub /> View Source
       </Button>

@@ -24,6 +24,15 @@ export const Projects: IProps = {
           status: 1,
           stage: 4,
           technology:'NextJS'
+        },
+        {
+          name:'Mint Music',
+          details: "An experimental music player",
+          image:'',
+          link: 'https://github.com/minhtet-htoon/mint-music',
+          status: 1,
+          stage: 1,
+          technology: 'Electron'
         }
       ]
     },
@@ -40,20 +49,5 @@ export const Projects: IProps = {
         technology: 'Rust'
       }]
     },
-    {
-      name: "Ideas",
-      icon: <Bulb />,
-      projects:[
-          {
-            name:'Mint Music',
-            details: "An experimental music player",
-            image:'',
-            link: 'https://github.com/minhtet-htoon/mint-ts2',
-            status: 2,
-            stage: 1,
-            technology: 'Electron'
-          }
-      ]
-    }
   ]
 };
